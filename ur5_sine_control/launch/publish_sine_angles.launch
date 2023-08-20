@@ -1,0 +1,16 @@
+<launch>
+  <!-- Launch UR5 Gazebo simulation -->
+  <include file="$(find universal_robot)/ur_gazebo/launch/ur5_bringup.launch" />
+
+  <!-- Launch MoveIt -->
+  <include file="$(find universal_robot)/ur5_moveit_config/launch/moveit_planning_execution.launch" />
+
+   <!-- Launch Rviz -->
+  <include file="$(find universal_robot)/ur5_moveit_config/launch/moveit_rviz.launch" />
+
+
+  <!-- Launch joint_angles_publisher.py -->
+  <node name="ur5_sine_control_node" pkg="ur5_sine_control" type="sine_wave.py" output="screen" />
+
+  
+</launch>
